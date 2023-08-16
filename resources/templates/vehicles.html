@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head th:insert="~{fragments/elements :: fg-head}">
+	<title></title>
+</head>
+
+<body>
+	<nav th:insert="~{fragments/elements.html :: fg-header}"></nav>
+	<div class="container mt-2" th:fragment="natures">
+		<div class="card">
+			<div class="card-header">
+				<h2><span th:text="#{listevehicles}"></span>
+					<span class="badge rounded-pill bg-warning" th:text="${vehiclesMap.size()}"></span>
+				</h2>
+			</div>
+			<div class="card-body">
+				<div class="row">
+					<div class="col">
+						<h5 th:text="#{horodate}"></h5>
+					</div>
+					<div class="col align-middle">
+						<div class="dropdown">
+							<button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"
+								aria-expanded="false" th:text="#{pointdemesure}"></button>
+							<ul class="dropdown-menu">
+								<li><a class="dropdown-item" th:href="@{/vehicles}">Tous</a></li>
+								<li th:each="p:${pdm}"><a class="dropdown-item"
+										th:href="@{/vehicles(pdmid=${p.getKey()})}"
+										th:text="${p.getValue().getNom()}"></a></li>
+							</ul>
+						</div>
+					</div>
+					<div class="col">
+						<h5 th:text="#{longueurdm}"></h5>
+					</div>
+					<div class="col">
+						<h5 th:text="#{vitessekmh}"></h5>
+					</div>
+				</div>
+				<div th:each="p:${vehiclesMap}" class="row gx-5">
+					<div class="col" th:text="${#dates.format(p.getKey())}"></div>
+					<div class="col">
+						<p class="text-center" th:text="${p.getValue().getCapteurId()}">
+					</div>
+					<div class="col">
+						<p class="text-end" th:text="${p.getValue().getLength()}">
+					</div>
+					<div class="col">
+						<p class="text-end" th:text="${p.getValue().getSpeed()}">
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+
+</html>
