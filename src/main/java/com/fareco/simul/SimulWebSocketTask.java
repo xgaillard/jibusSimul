@@ -5,11 +5,11 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-import org.apache.logging.log4j.Level;
 import org.springframework.stereotype.Service;
 
 import com.fareco.logger.ILog;
 
+import jakarta.annotation.PreDestroy;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -53,7 +53,13 @@ public class SimulWebSocketTask implements Runnable, ILog {
 		}
 		return interrupt;
 	}
-
+	@PreDestroy
+	private void stop() {
+		notFin=false;
+		synchronized (vehList) {
+		 vehList.notifyAll();	
+		}
+	}
 	@Override
 	public void run() {
 		long periode = 5000;
