@@ -29,12 +29,41 @@ public class ControllerMain {
 		if(null!=typeVeh) {
 			switch(typeVeh) {
 			case "VL":
-				SimulKistlerVeh veh=new SimulKistlerVeh(0, new Date().getTime(), 90., 4.0, 1, 1050.);
-				getVehList().add(veh);
+				task.setCycle(5000);
+				task.getVehList().clear();
+				SimulKistlerVeh veh=new SimulKistlerVeh(0, new Date().getTime(), 90., 4.0, 1, 1050.,5000L);
+				task.add(veh);
 				break;
 			case "PL":
-				SimulKistlerVeh veh2=new SimulKistlerVeh(0, new Date().getTime(), 50., 14.0, 4, 10050.);
-				getVehList().add(veh2);
+				task.setCycle(5000);
+				task.getVehList().clear();
+				SimulKistlerVeh veh2=new SimulKistlerVeh(0, new Date().getTime(), 50., 14.0, 4, 10050.,5000L);
+				task.add(veh2);
+				break;
+			case "VC":
+				task.setCycle(60000);
+				task.getVehList().clear();
+				task.add(new SimulKistlerVeh(0, new Date().getTime(), 50., 14.0, 4, 10050.,2000L));
+				task.add(new SimulKistlerVeh(0, new Date().getTime(), 50., 14.0, 4, 10050.,2000L));
+				task.add(new SimulKistlerVeh(0, new Date().getTime(), 50., 14.0, 4, 10050.,2000L));
+				task.add(new SimulKistlerVeh(0, new Date().getTime(), 50., 14.0, 4, 10050.,2000L));
+				task.add(new SimulKistlerVeh(0, new Date().getTime(), 100., 14.0, 4, 10050.,2000L));
+				task.add(new SimulKistlerVeh(0, new Date().getTime(), 100., 14.0, 4, 10050.,2000L));
+				task.add(new SimulKistlerVeh(0, new Date().getTime(), 100., 14.0, 4, 10050.,2000L));
+				task.add(new SimulKistlerVeh(0, new Date().getTime(), 150., 14.0, 4, 10050.,2000L));
+				task.add(new SimulKistlerVeh(0, new Date().getTime(), 150., 14.0, 4, 10050.,2000L));
+				task.add(new SimulKistlerVeh(0, new Date().getTime(), 200., 14.0, 4, 10050.,2000L));
+				break;
+			case "LC":
+				task.setCycle(20000);
+				task.getVehList().clear();
+				task.add(new SimulKistlerVeh(0, new Date().getTime(), 50., 5.0, 4, 2050.,2000L));
+				task.add(new SimulKistlerVeh(0, new Date().getTime(), 50., 5.0, 4, 2050.,2000L));
+				task.add(new SimulKistlerVeh(0, new Date().getTime(), 50., 5.0, 4, 2050.,2000L));
+				task.add(new SimulKistlerVeh(0, new Date().getTime(), 80., 8.0, 4, 2050.,2000L));
+				task.add(new SimulKistlerVeh(0, new Date().getTime(), 80., 8.0, 4, 2050.,2000L));
+				task.add(new SimulKistlerVeh(0, new Date().getTime(), 100., 10.0, 4, 2050.,2000L));
+
 				break;
 			default:
 				break;

@@ -1,5 +1,6 @@
 package com.fareco.simul;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import lombok.AllArgsConstructor;
@@ -20,4 +21,6 @@ public class SimulKistlerVeh {
 	Integer vehClass;
 	@JsonProperty("GrossWeight")
 	Double weight;
+	@JsonIgnore
+	Long intervale;
 }

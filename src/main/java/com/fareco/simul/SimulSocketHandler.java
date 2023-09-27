@@ -53,14 +53,12 @@ public class SimulSocketHandler implements WebSocketHandler {
 		String json = ow.writeValueAsString(message);
 		WebSocketMessage<String> wsm=new TextMessage(json.getBytes());
 		conns.forEach(endpoint -> {
-			synchronized (endpoint) {
 				try {
 					
 					endpoint.sendMessage(wsm);
 				} catch (IOException e) {
 					e.printStackTrace();
 				}
-			}
 		});
 	}
 
