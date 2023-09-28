@@ -17,14 +17,14 @@ public class ControllerMain {
 
 	private static final String PAGEMAIN 		= "main";
 	private static final String ATTRVEHICLES 	= "vehlist";
-	private static final String PATHROOT = "/";
+	private static final String PATHSIMUL = "/simul";
 
 	SimulWebSocketTask task=null;
 	public ControllerMain(SimulWebSocketTask task,SimulStarter instance) {
 		this.task=task;
 	}
 
-	@GetMapping(PATHROOT)
+	@GetMapping(PATHSIMUL)
 	public String pageRecueilInfo(Model model,@RequestParam(name = "typeveh", required = false) String typeVeh) {
 		if(null!=typeVeh) {
 			switch(typeVeh) {

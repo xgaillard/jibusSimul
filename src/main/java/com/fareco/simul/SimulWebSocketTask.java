@@ -16,7 +16,7 @@ import lombok.Setter;
 @Service
 @Getter
 @Setter
-public class SimulWebSocketTask implements Runnable, ILog {
+public class SimulWebSocketTask implements Runnable {
 
 	private long cycle = 15000;
 	private boolean notFin = true;
