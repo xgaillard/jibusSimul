@@ -3,10 +3,9 @@
 <head th:fragment="fg-head">
 <meta charset="ISO-8859-1">
 <title>JiBUS</title>
-<link rel="icon" href="favicon.ico" />
-<script src="/webjars/bootstrap/5.2.3/js/bootstrap.bundle.min.js"></script>
-<script src="/monwebsocket.js"></script>
-<link rel="stylesheet" href="/css/custom.css">
+<link rel="icon" th:href="@{favicon.ico}" />
+<script th:src="@{/webjars/bootstrap/5.2.3/js/bootstrap.bundle.min.js}"></script>
+<link rel="stylesheet" th:href="@{/css/custom.css}">
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
 </head>
@@ -16,7 +15,7 @@
 			<h2 class="display-1" th:text="#{simulator}"></h2>
 			<ul class="navbar-nav me-auto mb-2 mb-lg-0">
 				<li class="nav-item"><a class="nav-link active"
-					aria-current="page" href="@{/simul}" th:text="#{voiture}"></a></li>
+					aria-current="page" href="@{/}" th:text="#{voiture}"></a></li>
 			</ul>
 		</div>
 	</nav>

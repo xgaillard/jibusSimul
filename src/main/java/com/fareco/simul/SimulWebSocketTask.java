@@ -5,17 +5,11 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import javax.annotation.PreDestroy;
+
 import org.springframework.stereotype.Service;
 
-import com.fareco.logger.ILog;
-
-import jakarta.annotation.PreDestroy;
-import lombok.Getter;
-import lombok.Setter;
-
 @Service
-@Getter
-@Setter
 public class SimulWebSocketTask implements Runnable {
 
 	private long cycle = 15000;
@@ -102,5 +96,29 @@ public class SimulWebSocketTask implements Runnable {
 		synchronized (vehList) {
 			vehList.add(veh2);
 		}
+	}
+
+	public long getCycle() {
+		return cycle;
+	}
+
+	public void setCycle(long cycle) {
+		this.cycle = cycle;
+	}
+
+	public boolean isNotFin() {
+		return notFin;
+	}
+
+	public void setNotFin(boolean notFin) {
+		this.notFin = notFin;
+	}
+
+	public List<SimulKistlerVeh> getVehList() {
+		return vehList;
+	}
+
+	public void setVehList(List<SimulKistlerVeh> vehList) {
+		this.vehList = vehList;
 	}
 }

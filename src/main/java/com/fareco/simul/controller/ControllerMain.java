@@ -12,11 +12,13 @@ import com.fareco.simul.SimulKistlerVeh;
 import com.fareco.simul.SimulStarter;
 import com.fareco.simul.SimulWebSocketTask;
 
+
 @Controller
 public class ControllerMain {
 
 	private static final String PAGEMAIN 		= "main";
 	private static final String ATTRVEHICLES 	= "vehlist";
+	private static final String PATHROOT = "/";
 	private static final String PATHSIMUL = "/simul";
 
 	SimulWebSocketTask task=null;
@@ -24,8 +26,14 @@ public class ControllerMain {
 		this.task=task;
 	}
 
+	@GetMapping(PATHROOT)
+	public String pageRecueilInfo(Model model) {
+		model.addAttribute(ATTRVEHICLES, getVehList());
+		return PAGEMAIN;
+	}
+
 	@GetMapping(PATHSIMUL)
-	public String pageRecueilInfo(Model model,@RequestParam(name = "typeveh", required = false) String typeVeh) {
+	public String pageRecueilInfo2(Model model,@RequestParam(name = "typeveh", required = false) String typeVeh) {
 		if(null!=typeVeh) {
 			switch(typeVeh) {
 			case "VL":
