@@ -6,7 +6,7 @@ import org.springframework.boot.web.servlet.support.SpringBootServletInitializer
 import org.springframework.context.annotation.PropertySource;
 
 @SpringBootApplication
-@PropertySource("classpath:simul.properties")
+@PropertySource("file:simul.properties")
 public class SimulStarter extends SpringBootServletInitializer {
 
 //	private SimulWebSocket simulWs;
