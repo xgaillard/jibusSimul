@@ -1,5 +1,8 @@
 package com.fareco.simul;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
@@ -14,6 +17,13 @@ public class SimulKistlerVeh {
 		this.vehClass = vehClass;
 		this.weight = weight;
 		this.intervale = intervale;
+		this.axles=new ArrayList<>();
+	}
+	public void addAxle(Double weight,Double distance)  {
+		this.axles.add(new SimulKistlerAxle(weight, distance));
+	}
+	public void addAxle(SimulKistlerAxle axle)  {
+		this.axles.add(new SimulKistlerAxle(axle.getWeight(), axle.getDistance()));
 	}
 
 	public Integer getLaneNo() {
@@ -72,4 +82,6 @@ public class SimulKistlerVeh {
 	Double weight;
 	@JsonIgnore
 	Long intervale;
+	@JsonProperty("Axles")
+	List<SimulKistlerAxle> axles;
 }

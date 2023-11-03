@@ -40,12 +40,19 @@ public class ControllerMain {
 				task.setCycle(5000);
 				task.getVehList().clear();
 				SimulKistlerVeh veh=new SimulKistlerVeh(0, new Date().getTime(), 90., 4.0, 1, 1050.,5000L);
+				veh.addAxle(500.,0.);
+				veh.addAxle(550.,3.);
 				task.add(veh);
 				break;
 			case "PL":
 				task.setCycle(5000);
 				task.getVehList().clear();
 				SimulKistlerVeh veh2=new SimulKistlerVeh(0, new Date().getTime(), 50., 14.0, 4, 10050.,5000L);
+				veh2.addAxle(2000.,0.);
+				veh2.addAxle(2500.,3.);
+				veh2.addAxle(2000.,7.);
+				veh2.addAxle(2000.,1.5);
+				veh2.addAxle(2000.,1.5);
 				task.add(veh2);
 				break;
 			case "VC":
